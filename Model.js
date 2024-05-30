@@ -1,11 +1,19 @@
 const fs = require("fs");
+
 class Model {
   constructor(jsonFileName) {
     this.jsonFileName = jsonFileName;
   }
 
   read() {
-    return fs.readFileSync(this.jsonFileName);
+    const data = fs.readFileSync(this.jsonFileName);
+    return JSON.parse(data);
+  }
+
+  add(item) {
+    const data = this.read();
+    data.push(item);
+    return data;
   }
 }
 

@@ -3,6 +3,10 @@ const createSlug = (title, posts) => {
     throw new Error("title must be a string");
   }
 
+  if (title.trim() === "") {
+    throw new Error("title must not be empty");
+  }
+
   const slugs = posts.map((post) => post.slug);
   const baseSlug = title.toLowerCase().replaceAll(" ", "-");
   let slug = baseSlug;

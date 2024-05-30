@@ -27,3 +27,9 @@ it("should throw an error if title is empty or badly formatted", () => {
 
   expect(() => createSlug(" ", posts)).toThrow;
 });
+
+it("should throw an error if array is missing", () => {
+  expect(() => createSlug("ciao")).toThrow;
+  expect(() => createSlug("ciao", null)).toThrow;
+  expect(() => createSlug("ciao", "not an array")).toThrow;
+});

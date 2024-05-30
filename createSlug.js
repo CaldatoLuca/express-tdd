@@ -7,6 +7,10 @@ const createSlug = (title, posts) => {
     throw new Error("title must not be empty");
   }
 
+  if (!Array.isArray(posts)) {
+    throw new Error("posts must be an array");
+  }
+
   const slugs = posts.map((post) => post.slug);
   const baseSlug = title.toLowerCase().replaceAll(" ", "-");
   let slug = baseSlug;

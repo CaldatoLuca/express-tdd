@@ -11,3 +11,8 @@ it("should ask for json fileName", () => {
   const model = new Model(testJson);
   expect(model.jsonFileName).toBe(testJson);
 });
+
+it("should have read method", () => {
+  const model = new Model(testJson);
+  expect(typeof model.read).toBe("function");
+});
